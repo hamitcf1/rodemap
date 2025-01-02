@@ -79,6 +79,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 If you have any questions or suggestions, please open an issue in the repository.
 
-## Project URL
+## Project URLs
 
 https://roadmap.sh/projects/single-page-cv
+https://roadmap.sh/projects/basic-html-website
+
