@@ -2,7 +2,7 @@
 
 A simple multi-page website built with semantic HTML5, demonstrating proper website structure and SEO best practices.
 
-🔗 [Project Requirements](https://roadmap.sh/projects/basic-html-website)
+🔗 [Project Requirements]https://roadmap.sh/projects/basic-html-website
 
 ## Overview
 
