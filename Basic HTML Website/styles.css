@@ -1,46 +1,97 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-}
-
-.navbar {
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color:  #f9f9f9;
+    background-color: #fff;
     border-bottom: 1px solid #ddd;
-}
-
-.logo {
+  }
+  
+  .navbar .logo {
     display: flex;
     align-items: center;
-}
-
-.logo img {
+  }
+  
+  .navbar .logo img {
     width: 30px;
     height: 30px;
     margin-right: 10px;
-    border-radius: 50%; /* To make the logo circular */
-}
+    border-radius: 50%;
+  }
   
-  .logo span {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-}
-  
-  .nav-links {
-    display: flex;
-    gap: 20px;
-}
-  
-  .nav-links a {
+  .navbar .nav-links a {
+    margin-left: 15px;
     text-decoration: none;
     color: #333;
-    font-size: 16px;
-}
+  }
   
-  .nav-links a:hover {
+  .navbar .nav-links a:hover {
     color: #007bff;
-}
+  }
+  
+  .intro {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .card {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .card h2 {
+    margin-top: 0;
+  }
+  
+  .card ul {
+    padding-left: 20px;
+  }
+  
+  .reviews {
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .review-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .review-card {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+  }
