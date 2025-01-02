@@ -23,7 +23,7 @@ A minimalist, HTML-based CV/resume template designed to present your professiona
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/single-page-cv.git
+   git clone https://github.com/hamitcf1/single-page-cv.git
    ```
 2. Open `single-page-cv.html` in your preferred text editor
 3. Replace the placeholder content with your information
