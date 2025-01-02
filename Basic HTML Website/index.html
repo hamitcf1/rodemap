@@ -23,7 +23,7 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="/styles.css">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -84,12 +84,34 @@
 
         <section class="reviews">
             <h2>Reviews from my teachers</h2>
-
-            <p>Here are some of the reviews from my teachers</p>
-            <div class="review-grid">
-                <div class="review-card">John Doe was a brilliant student</div>
-                <div class="review-card">John Doe was a brilliant student</div>
-                <div class="review-card">John Doe was a brilliant student</div>
+            <div class="review-slider-container">
+                <div class="review-slider" id="reviewSlider">
+                    <div class="review-card">
+                        <div class="review-content">
+                            <p class="review-text">"Hamit Can was a brilliant student"</p>
+                            <p class="review-author">- Ahmet Mehmet</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-content">
+                            <p class="review-text">"Mükemmir"</p>
+                            <p class="review-author">- Efe Teoman Yücel</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-content">
+                            <p class="review-text">"Simply unbelievable"</p>
+                            <p class="review-author">- Pearly Hotel</p>
+                        </div>
+                    </div>
+                    <!-- Add more review cards as needed -->
+                </div>
+                <button class="slider-nav prev" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-nav next" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </section>
     </main>
@@ -101,5 +123,6 @@
 
     <!-- JavaScript -->
     <script src="js/index.js"></script>
+    <script src="js/slider.js"></script>
 </body>
 </html> 
