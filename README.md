@@ -78,3 +78,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📧 Support
 
 If you have any questions or suggestions, please open an issue in the repository.
+
+## Project URL
+
+https://roadmap.sh/projects/single-page-cv
