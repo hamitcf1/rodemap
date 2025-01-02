@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
     
     <!-- Primary Meta Tags -->
     <title>Articles | Hamit Can FINDIK</title>
@@ -41,11 +42,18 @@
             <span>Hamit Can FINDIK</span>
         </div>
         <nav class="nav-links">
-            <!-- Navigation content -->
-                <a href="index.html">Home</a> / 
-                <a href="projects.html">Projects</a> / 
-                <a href="articles.html"><strong>Articles</strong></a> / 
-                <a href="contact.html">Contact</a>
+            <div class="theme-switcher">
+                <label>Theme:</label>
+                <select id="themeSelect">
+                    <option value="light">Light</option>
+                    <option value="midnight">Midnight</option>
+                    <option value="amoled">AMOLED</option>
+                </select>
+            </div>
+            <a href="index.html">Home</a> / 
+            <a href="projects.html">Projects</a> / 
+            <a href="articles.html">Articles</a> / 
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
@@ -72,5 +80,6 @@
 
     <!-- JavaScript -->
     <script src="js/articles.js"></script>
+    <script src="js/theme.js"></script>
 </body>
 </html>
