@@ -108,4 +108,26 @@ ul li span {
 
 ul li span:hover {
     background: #edeef0;
+}
+
+.back-btn {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background: #ff5945;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 40px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #ff4025;
+    transform: translateY(-2px);
+}
+
+.back-btn:active {
+    transform: translateY(0);
 } 

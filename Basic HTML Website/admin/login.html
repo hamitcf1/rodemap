@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Hamit Can FINDIK</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main>
+        <section class="intro">
+            <h1>ADMIN LOGIN</h1>
+        </section>
+
+        <section class="content">
+            <div class="card">
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script type="module">
+        import { auth } from '../js/firebase-config.js';
+        import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                window.location.href = '/admin/reviews.html';
+            } catch (error) {
+                alert('Login failed: ' + error.message);
+            }
+        });
+
+        // Redirect to login if not authenticated
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                window.location.href = '/admin/reviews.html';
+            }
+        });
+    </script>
+</body>
+</html> 

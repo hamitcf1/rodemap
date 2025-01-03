@@ -36,10 +36,10 @@
 </head>
 <body>
     <header class="navbar">
-        <div class="logo">
+        <a href="index.html" class="logo">
             <img src="images/mylogo.png" alt="Logo">
             <span>Hamit Can FINDIK</span>
-        </div>
+        </a>
         <div class="theme-switcher">
             <label>Theme:</label>
             <select id="themeSelect">
@@ -58,8 +58,13 @@
                     <a href="projects.html">Projects</a>
                     <a href="articles.html">Articles</a>
                     <a href="contact.html">Contact</a>
+                    <a href="reviews.html">Reviews</a>
                 </div>
             </nav>
+        </div>
+                <!-- Add inside your existing header, next to the theme selector -->
+        <div class="admin-login">
+            <button id="adminAuthButton" class="admin-btn">Admin Login</button>
         </div>
     </header>
 
@@ -74,7 +79,7 @@
                 <p>A fully functional calculator with basic arithmetic operations.</p>
                 <div class="project-links">
                     <a href="/projects/calculator/calculator.html" class="project-btn">Live Demo</a>
-                    <a href="https://github.com/yourusername/calculator" class="project-btn github">
+                    <a href="https://github.com/hamitcf1/rodemap/tree/main/Basic%20HTML%20Website/projects/calculator" class="project-btn github">
                         <i class="fab fa-github"></i> Source
                     </a>
                 </div>
@@ -88,7 +93,7 @@
                 <p>A dynamic todo list application with local storage functionality.</p>
                 <div class="project-links">
                     <a href="/projects/to-do-list/to-do-list.html" class="project-btn">Live Demo</a>
-                    <a href="https://github.com/yourusername/todo-list" class="project-btn github">
+                    <a href="https://github.com/hamitcf1/rodemap/tree/main/Basic%20HTML%20Website/projects/to-do-list" class="project-btn github">
                         <i class="fab fa-github"></i> Source
                     </a>
                 </div>
@@ -102,7 +107,7 @@
                 <p>Classic game of Rock Paper Scissors against the computer.</p>
                 <div class="project-links">
                     <a href="/projects/rock-paper-scissors/rock-paper-scissors.html" class="project-btn">Live Demo</a>
-                    <a href="https://github.com/yourusername/rock-paper-scissors" class="project-btn github">
+                    <a href="https://github.com/hamitcf1/rodemap/tree/main/Basic%20HTML%20Website/projects/rock-paper-scissors" class="project-btn github">
                         <i class="fab fa-github"></i> Source
                     </a>
                 </div>
@@ -155,5 +160,55 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8638772791098124"
     crossorigin="anonymous"></script>
     <script src="js/ads.js"></script>
+    <!-- Add before closing </body> tag -->
+<script src="https://www.gstatic.com/firebasejs/10.x.x/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.x.x/firebase-auth.js"></script>
+
+<script>
+// Your Firebase config
+const firebaseConfig = {
+  // your config here
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Admin auth logic
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
+
+// List of admin email addresses
+const ADMIN_EMAILS = ['your-admin@email.com']; // Add your admin emails here
+
+document.addEventListener('DOMContentLoaded', () => {
+  const adminAuthButton = document.getElementById('adminAuthButton');
+  
+  auth.onAuthStateChanged((user) => {
+    if (user && ADMIN_EMAILS.includes(user.email)) {
+      adminAuthButton.textContent = 'Admin Logout';
+    } else {
+      adminAuthButton.textContent = 'Admin Login';
+    }
+  });
+
+  adminAuthButton.addEventListener('click', async () => {
+    if (auth.currentUser) {
+      await auth.signOut();
+    } else {
+      try {
+        const result = await auth.signInWithPopup(provider);
+        const user = result.user;
+        
+        if (!ADMIN_EMAILS.includes(user.email)) {
+          await auth.signOut();
+          alert('Unauthorized access. Please use an admin account.');
+        }
+      } catch (error) {
+        console.error('Auth error:', error);
+      }
+    }
+  });
+});
+</script>
 </body>
 </html>

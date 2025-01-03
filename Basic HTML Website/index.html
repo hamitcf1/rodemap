@@ -31,10 +31,10 @@
 </head>
 <body>
     <header class="navbar">
-        <div class="logo">
+        <a href="index.html" class="logo">
             <img src="images/mylogo.png" alt="Logo">
             <span>Hamit Can FINDIK</span>
-        </div>
+        </a>
         <div class="theme-switcher">
             <label>Theme:</label>
             <select id="themeSelect">
@@ -42,6 +42,9 @@
                 <option value="midnight">Midnight</option>
                 <option value="amoled">AMOLED</option>
             </select>
+        </div>
+        <div class="admin-login">
+            <button id="adminAuthButton" class="admin-btn">Admin Login</button>
         </div>
         <div class="nav-container">
             <button class="menu-toggle">
@@ -129,6 +132,19 @@
                 </button>
             </div>
         </section>
+
+        <section class="reviews-section">
+            <h2>What People Say</h2>
+            <div class="reviews-carousel">
+                <div class="carousel-container" id="reviewsCarousel">
+                    <!-- Reviews will be populated via JavaScript -->
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-button prev">Previous</button>
+                    <button class="carousel-button next">Next</button>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -144,5 +160,56 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8638772791098124"
     crossorigin="anonymous"></script>
     <script src="js/ads.js"></script>
+    <script src="js/carousel.js"></script>
+    <!-- Add before closing </body> tag -->
+<script src="https://www.gstatic.com/firebasejs/10.x.x/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.x.x/firebase-auth.js"></script>
+
+<script>
+// Your Firebase config
+const firebaseConfig = {
+  // your config here
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Admin auth logic
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
+
+// List of admin email addresses
+const ADMIN_EMAILS = ['your-admin@email.com']; // Add your admin emails here
+
+document.addEventListener('DOMContentLoaded', () => {
+  const adminAuthButton = document.getElementById('adminAuthButton');
+  
+  auth.onAuthStateChanged((user) => {
+    if (user && ADMIN_EMAILS.includes(user.email)) {
+      adminAuthButton.textContent = 'Admin Logout';
+    } else {
+      adminAuthButton.textContent = 'Admin Login';
+    }
+  });
+
+  adminAuthButton.addEventListener('click', async () => {
+    if (auth.currentUser) {
+      await auth.signOut();
+    } else {
+      try {
+        const result = await auth.signInWithPopup(provider);
+        const user = result.user;
+        
+        if (!ADMIN_EMAILS.includes(user.email)) {
+          await auth.signOut();
+          alert('Unauthorized access. Please use an admin account.');
+        }
+      } catch (error) {
+        console.error('Auth error:', error);
+      }
+    }
+  });
+});
+</script>
 </body>
 </html> 

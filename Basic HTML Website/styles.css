@@ -17,6 +17,12 @@ body {
   .navbar .logo {
     display: flex;
     align-items: center;
+    text-decoration: none;
+    color: var(--text-primary);
+  }
+  
+  .navbar .logo:hover {
+    opacity: 0.8;
   }
   
   .navbar .logo img {
@@ -772,4 +778,190 @@ body {
   
   .footer-ads-container.active {
     display: block;
+  }
+  
+  /* Reviews Page Styles */
+  .reviews-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .review-form-section {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  
+  .review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.5rem;
+  }
+  
+  .star-rating input {
+    display: none;
+  }
+  
+  .star-rating label {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+  }
+  
+  .star-rating input:checked ~ label {
+    color: #ffb400;
+  }
+  
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .review-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Carousel Styles for Homepage */
+  .reviews-carousel {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 0;
+  }
+  
+  .carousel-container {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+  
+  .carousel-slide {
+    min-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .carousel-button {
+    background: var(--accent-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .review-card.pending {
+    opacity: 0.7;
+    border: 1px solid #ffd700;
+  }
+  
+  .review-card.pending::after {
+    content: "Under Review";
+    display: inline-block;
+    background: #ffd700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-top: 1rem;
+  }
+  
+  /* Reviews Page Specific Styles */
+  .page-header {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--section-bg);
+    margin-bottom: 2rem;
+  }
+  
+  .page-header h1 {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+  
+  .page-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+  }
+  
+  .reviews-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem var(--padding-x);
+  }
+  
+  .review-form-section {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .reviews-display {
+    margin-top: 4rem;
+  }
+  
+  .review-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease;
+  }
+  
+  .review-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Match your site's button styles */
+  .submit-review {
+    background: var(--accent-color);
+    color: var(--text-on-accent);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-review:hover {
+    background: var(--accent-hover);
+  }
+  
+  .admin-login {
+    margin-left: 20px;
+  }
+  
+  .admin-btn {
+    padding: 8px 16px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .admin-btn:hover {
+    background-color: #34495e;
   }
