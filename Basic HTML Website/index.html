@@ -92,9 +92,9 @@
 
         <section class="reviews">
             <h2>Reviews from my teachers</h2>
-            <div class="review-slider-container">
-                <div class="review-slider" id="reviewSlider">
-                    <div class="review-card">
+            <div class="review-carousel">
+                <div class="review-container" id="reviewContainer">
+                    <div class="review-card active">
                         <div class="review-content">
                             <p class="review-text">"Hamit Can was a brilliant student"</p>
                             <p class="review-author">- Ahmet Mehmet</p>
@@ -112,12 +112,12 @@
                             <p class="review-author">- Pearly Hotel</p>
                         </div>
                     </div>
-                    <!-- Add more review cards as needed -->
                 </div>
-                <button class="slider-nav prev" id="prevBtn">
+                <div class="carousel-dots" id="carouselDots"></div>
+                <button class="carousel-nav prev" id="prevBtn">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="slider-nav next" id="nextBtn">
+                <button class="carousel-nav next" id="nextBtn">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>

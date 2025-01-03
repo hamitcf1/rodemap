@@ -71,72 +71,106 @@ body {
   
   .reviews {
     padding: 2rem 0;
-    background-color: #f8f9fa;
+    background-color: var(--bg-secondary);
   }
   
-  .review-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+  .review-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  .review-container {
+    position: relative;
+    height: 200px; /* Adjust based on your content */
+    overflow: hidden;
   }
   
   .review-card {
-    min-width: 300px;
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
   }
   
-  .review-card:hover {
-    transform: translateY(-5px);
+  .review-card.active {
+    opacity: 1;
+    transform: translateX(0);
   }
   
   .review-content {
     text-align: center;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .review-text {
-    font-size: 1.1rem;
-    color: var(--text-primary);
+    font-size: 1.2rem;
     margin-bottom: 1rem;
     font-style: italic;
+    color: var(--text-primary);
   }
   
   .review-author {
-    color: var(--text-secondary);
     font-weight: 600;
+    color: var(--text-secondary);
   }
   
-  .slider-nav {
+  .carousel-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    background: var(--card-bg);
+    border: none;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: white;
-    border: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
   }
   
-  .slider-nav:hover {
-    background: #f0f0f0;
+  .carousel-nav:hover {
+    background: var(--bg-secondary);
     transform: translateY(-50%) scale(1.1);
   }
   
-  .slider-nav.prev {
-    left: 10px;
+  .carousel-nav.prev {
+    left: -50px;
   }
   
-  .slider-nav.next {
-    right: 10px;
+  .carousel-nav.next {
+    right: -50px;
+  }
+  
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-secondary);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .dot.active {
+    opacity: 1;
+    background: var(--accent-color);
   }
   
   @media (max-width: 768px) {
