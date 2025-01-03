@@ -89,4 +89,28 @@ class ReviewsManager {
 
 document.addEventListener('DOMContentLoaded', () => {
     new ReviewsManager();
-}); 
+});
+
+// Add this function to handle review approval/decline
+async function handleReviewStatus(reviewId, status) {
+    // Check if user is admin
+    const user = firebase.auth().currentUser;
+    if (!user || !ADMIN_EMAILS.includes(user.email)) {
+        alert('Unauthorized. Only admins can approve/decline reviews.');
+        return;
+    }
+
+    try {
+        const db = firebase.firestore();
+        await db.collection('reviews').doc(reviewId).update({
+            status: status,
+            moderatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        
+        // Refresh the reviews display
+        loadReviews();
+    } catch (error) {
+        console.error('Error updating review:', error);
+        alert('Failed to update review status');
+    }
+} 

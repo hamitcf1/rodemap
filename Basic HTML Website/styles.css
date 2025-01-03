@@ -965,3 +965,25 @@ body {
   .admin-btn:hover {
     background-color: #34495e;
   }
+  
+  .admin-controls {
+    margin-top: 10px;
+  }
+  
+  .approve-btn, .decline-btn {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .approve-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .decline-btn {
+    background-color: #f44336;
+    color: white;
+  }
