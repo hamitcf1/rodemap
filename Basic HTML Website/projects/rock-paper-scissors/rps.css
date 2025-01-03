@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #153677, #4e085f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.game-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+.score {
+    text-align: center;
+}
+
+.score p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.score span {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.result {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    min-height: 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.choice {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 1.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.choice:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.choice i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.choice span {
+    font-size: 1rem;
+}
+
+.reset-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.reset-btn:hover {
+    background: #c0392b;
+}
+
+@media (max-width: 480px) {
+    .choices {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .choice {
+        width: 80%;
+    }
+}
+
+.move-box i {
+    font-size: 4rem;
+    margin: 1rem 0;
+    transition: transform 0.3s, color 0.3s;
+    color: white;
+}
+
+.move-box.winner i {
+    transform: scale(1.1);
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.history-item i {
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+}
+
+.history-list {
+    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.history-list.hidden {
+    display: none;
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+} 
