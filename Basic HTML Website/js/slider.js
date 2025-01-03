@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const reviews = container.getElementsByClassName('review-card');
     let currentIndex = 0;
     let interval;
+    let startX;
+    let isDragging = false;
 
     // Create dots
     for (let i = 0; i < reviews.length; i++) {
@@ -20,6 +22,43 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize
     updateSlides();
     startAutoSlide();
+
+    // Drag functionality
+    container.addEventListener('mousedown', startDragging);
+    container.addEventListener('touchstart', (e) => startDragging(e), { passive: true });
+    container.addEventListener('mousemove', drag);
+    container.addEventListener('touchmove', drag);
+    container.addEventListener('mouseup', endDragging);
+    container.addEventListener('touchend', endDragging);
+    container.addEventListener('mouseleave', endDragging);
+
+    function startDragging(e) {
+        isDragging = true;
+        startX = e.type === 'mousedown' ? e.pageX : e.touches[0].clientX;
+        container.style.cursor = 'grabbing';
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        const currentX = e.type === 'mousemove' ? e.pageX : e.touches[0].clientX;
+        const diff = startX - currentX;
+
+        if (Math.abs(diff) > 50) { // Threshold for slide change
+            if (diff > 0) {
+                goToSlide((currentIndex + 1) % reviews.length);
+            } else {
+                goToSlide((currentIndex - 1 + reviews.length) % reviews.length);
+            }
+            isDragging = false;
+            container.style.cursor = 'grab';
+        }
+    }
+
+    function endDragging() {
+        isDragging = false;
+        container.style.cursor = 'grab';
+    }
 
     // Navigation
     prevBtn.addEventListener('click', () => {
@@ -39,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         interval = setInterval(() => {
             currentIndex = (currentIndex + 1) % reviews.length;
             updateSlides();
-        }, 5000); // Change slide every 5 seconds
+        }, 7000); // Slowed down to 7 seconds
     }
 
     function resetAutoSlide() {
@@ -48,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateSlides() {
-        // Update slides
         for (let i = 0; i < reviews.length; i++) {
             reviews[i].classList.remove('active');
             dotsContainer.children[i].classList.remove('active');

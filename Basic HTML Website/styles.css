@@ -70,8 +70,15 @@ body {
   }
   
   .reviews {
-    padding: 2rem 0;
+    padding: 4rem 0;
     background-color: var(--bg-secondary);
+    text-align: center;
+  }
+  
+  .reviews h2 {
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
   }
   
   .review-carousel {
@@ -83,8 +90,13 @@ body {
   
   .review-container {
     position: relative;
-    height: 200px; /* Adjust based on your content */
+    height: 200px;
     overflow: hidden;
+    cursor: grab;
+  }
+  
+  .review-container:active {
+    cursor: grabbing;
   }
   
   .review-card {
@@ -92,7 +104,7 @@ body {
     width: 100%;
     opacity: 0;
     transform: translateX(100%);
-    transition: all 0.5s ease;
+    transition: all 0.8s ease;
   }
   
   .review-card.active {
@@ -136,6 +148,7 @@ body {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    z-index: 2;
   }
   
   .carousel-nav:hover {
@@ -144,11 +157,11 @@ body {
   }
   
   .carousel-nav.prev {
-    left: -50px;
+    left: 20px;
   }
   
   .carousel-nav.next {
-    right: -50px;
+    right: 20px;
   }
   
   .carousel-dots {
@@ -298,6 +311,9 @@ body {
     --border-color: #dee2e6;
     --card-bg: #ffffff;
     --navbar-bg: #ffffff;
+    --intro-bg: #ffffff;
+    --intro-text: #333333;
+    --description-text: #666666;
   }
   
   :root[data-theme="midnight"] {
@@ -309,6 +325,9 @@ body {
     --border-color: #40454e;
     --card-bg: #2c2e33;
     --navbar-bg: #2c2e33;
+    --intro-bg: #1a1b1e;
+    --intro-text: #e4e5e7;
+    --description-text: #a1a1a1;
   }
   
   :root[data-theme="amoled"] {
@@ -320,6 +339,9 @@ body {
     --border-color: #333333;
     --card-bg: #121212;
     --navbar-bg: #000000;
+    --intro-bg: #000000;
+    --intro-text: #ffffff;
+    --description-text: #cccccc;
   }
   
   /* Apply variables to existing elements */
@@ -384,4 +406,27 @@ body {
   /* Add smooth transitions */
   * {
     transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Add these new styles for intro section */
+  .intro {
+    background-color: var(--intro-bg);
+    padding: 3rem 0;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .intro h1 {
+    color: var(--intro-text);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .description-me {
+    color: var(--description-text);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: color 0.3s ease;
   }
