@@ -40,23 +40,27 @@
             <img src="images/mylogo.png" alt="Logo">
             <span>Hamit Can FINDIK</span>
         </div>
-        <nav class="nav-links">
-            <div class="theme-switcher">
-                <label>Theme:</label>
-                <select id="themeSelect">
-                    <option value="light">Light</option>
-                    <option value="midnight">Midnight</option>
-                    <option value="amoled">AMOLED</option>
-                </select>
-            </div>
-            <a href="index.html">Home</a>
-            <span>/</span>
-            <strong>Projects</strong>
-            <span>/</span>
-            <a href="articles.html">Articles</a>
-            <span>/</span>
-            <a href="contact.html">Contact</a>
-        </nav>
+        <div class="theme-switcher">
+            <label>Theme:</label>
+            <select id="themeSelect">
+                <option value="light">Light</option>
+                <option value="midnight">Midnight</option>
+                <option value="amoled">AMOLED</option>
+            </select>
+        </div>
+        <div class="nav-container">
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links">
+                <div class="nav-items">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="articles.html">Articles</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <h1>Projects</h1>
@@ -75,5 +79,6 @@
     <!-- JavaScript -->
     <script src="js/projects.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>

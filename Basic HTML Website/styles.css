@@ -202,28 +202,32 @@ body {
   /* Contact page styles */
   .contact-container {
     max-width: 800px;
-    margin: 2rem auto;
+    margin: 2rem 0 2rem 2rem;
     padding: 2rem;
   }
   
   .social-links {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-bottom: 2rem;
+    align-items: flex-start;
   }
   
   .social-link {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 0.8rem;
+    padding: 0.8rem;
     background-color: var(--bg-secondary);
     border-radius: 8px;
     text-decoration: none;
     color: var(--text-primary);
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    width: 50%;
+    max-width: 300px;
   }
   
   .social-link:hover {
@@ -232,8 +236,8 @@ body {
   }
   
   .social-link i {
-    font-size: 1.5rem;
-    width: 40px;
+    font-size: 1.2rem;
+    width: 30px;
     text-align: center;
   }
   
@@ -332,22 +336,22 @@ body {
   
   :root[data-theme="midnight"] {
     --bg-primary: #1a1b1e;
-    --bg-secondary: #2c2e33;
-    --text-primary: #e4e5e7;
-    --text-secondary: #a1a1a1;
+    --bg-secondary: #353941;
+    --text-primary: #ffffff;
+    --text-secondary: #e4e5e7;
     --accent-color: #4dabf7;
     --border-color: #40454e;
     --card-bg: #2c2e33;
     --navbar-bg: #2c2e33;
     --intro-bg: #1a1b1e;
-    --intro-text: #e4e5e7;
-    --description-text: #a1a1a1;
+    --intro-text: #ffffff;
+    --description-text: #e4e5e7;
     --footer-bg: #1a1b1e;
-    --footer-text: #e4e5e7;
+    --footer-text: #ffffff;
     --carousel-border: rgba(255, 255, 255, 0.1);
-    --nav-link: #e4e5e7;
+    --nav-link: #ffffff;
     --nav-link-hover: #4dabf7;
-    --nav-divider: #a1a1a1;
+    --nav-divider: #e4e5e7;
   }
   
   :root[data-theme="amoled"] {
@@ -397,10 +401,7 @@ body {
   
   /* Theme Switcher Styles */
   .theme-switcher {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-right: 1rem;
+    margin: 0 1rem;
   }
   
   .theme-switcher label {
@@ -471,20 +472,52 @@ body {
   
   /* Navigation Styles */
   .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1rem;
+    min-width: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav-links.active {
+    display: block;
+  }
+  
+  .nav-items {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 0.5rem;
+    align-items: stretch;
+    width: 100%;
   }
   
-  .nav-links a {
-    color: var(--nav-link);
+  .nav-items a,
+  .nav-items strong {
+    color: var(--text-primary) !important;
     text-decoration: none;
-    padding: 0.5rem;
-    transition: all 0.3s ease;
+    display: block;
+    padding: 0.8rem;
+    border-radius: 4px;
+    transition: color 0.3s ease;
+    width: calc(100% - 1.6rem);
+    text-align: left;
+    margin: 0;
+    box-sizing: border-box;
   }
   
-  .nav-links a:hover {
-    color: var(--nav-link-hover);
+  .nav-items a:visited {
+    color: var(--text-primary) !important;
+  }
+  
+  .nav-items a:hover,
+  .nav-items strong:hover,
+  .nav-items a:visited:hover {
+    color: var(--accent-color) !important;
   }
   
   /* Active page indicator */
@@ -514,4 +547,86 @@ body {
     color: var(--nav-link);
     font-weight: 600;
     padding: 0.5rem;
+  }
+  
+  /* Add specific styles for visited links */
+  .nav-links a:visited {
+    color: var(--nav-link);
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:visited:hover {
+    color: var(--nav-link-hover);
+    background-color: var(--bg-primary);
+  }
+  
+  /* Navbar styles */
+  .nav-container {
+    position: relative;
+  }
+  
+  .menu-toggle {
+    background: none;
+    border: none;
+    color: var(--nav-link);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-right: -0.5rem;
+  }
+  
+  /* Media query for mobile devices */
+  @media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding: 1rem;
+        min-width: 200px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.active {
+        display: block;
+    }
+
+    .nav-items {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-items a,
+    .nav-items strong {
+        width: 100%;
+        text-align: left;
+        padding: 0.8rem;
+    }
+
+    .theme-switcher {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+  }
+  
+  /* Update theme-specific colors */
+  :root[data-theme="midnight"],
+  :root[data-theme="amoled"] {
+    --nav-link: var(--text-primary);
+    --nav-link-hover: var(--accent-color);
+  }
+  
+  /* Reset any default link styles */
+  .nav-links a {
+    margin: 0;
+    padding: 0.8rem;
   }
