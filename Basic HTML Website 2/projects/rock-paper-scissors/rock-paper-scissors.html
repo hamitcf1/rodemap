@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="rps.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Rock Paper Scissors</h1>
+        
+        <div class="moves-display">
+            <div class="move-box player-move">
+                <h3>Your Move</h3>
+                <i id="player-move-icon" class="fas fa-question-circle"></i>
+            </div>
+            <div class="move-box computer-move">
+                <h3>Computer's Move</h3>
+                <i id="computer-move-icon" class="fas fa-question-circle"></i>
+            </div>
+        </div>
+
+        <div class="score-board">
+            <div class="score">
+                <p>You</p>
+                <span id="player-score">0</span>
+            </div>
+            <div class="score">
+                <p>Computer</p>
+                <span id="computer-score">0</span>
+            </div>
+        </div>
+        
+        <div class="autoplay-controls">
+            <button id="autoplay-btn" class="control-btn">Start Autoplay</button>
+            <select id="autoplay-speed">
+                <option value="1000">1 second</option>
+                <option value="2000">2 seconds</option>
+                <option value="3000">3 seconds</option>
+            </select>
+        </div>
+
+        <div class="game-area">
+            <div id="result" class="result">Choose your weapon!</div>
+            <div class="choices">
+                <button class="choice" data-choice="rock">
+                    <i class="fas fa-hand-rock"></i>
+                    <span>Rock</span>
+                </button>
+                <button class="choice" data-choice="paper">
+                    <i class="fas fa-hand-paper"></i>
+                    <span>Paper</span>
+                </button>
+                <button class="choice" data-choice="scissors">
+                    <i class="fas fa-hand-scissors"></i>
+                    <span>Scissors</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="history-section">
+            <button id="history-toggle" class="control-btn">Show History</button>
+            <div id="history-list" class="history-list hidden">
+                <!-- History items will be added here dynamically -->
+            </div>
+        </div>
+
+        <button id="reset" class="reset-btn">Reset Game</button>
+    </div>
+    <a href="../../../projects.html" class="back-btn">Back to Projects</a>
+    <script src="script.js"></script>
+</body>
+</html>
