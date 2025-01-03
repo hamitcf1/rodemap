@@ -71,26 +71,27 @@ body {
   
   .reviews {
     padding: 4rem 0;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
     text-align: center;
   }
   
   .reviews h2 {
     color: var(--text-primary);
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    font-weight: 600;
   }
   
   .review-carousel {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 20px 60px;
   }
   
   .review-container {
     position: relative;
-    height: 200px;
+    height: 180px;
     overflow: hidden;
     cursor: grab;
   }
@@ -115,20 +116,20 @@ body {
   .review-content {
     text-align: center;
     padding: 2rem;
-    background: var(--card-bg);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: var(--bg-primary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
   }
   
   .review-text {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
     font-style: italic;
     color: var(--text-primary);
   }
   
   .review-author {
-    font-weight: 600;
+    font-size: 1.1rem;
     color: var(--text-secondary);
   }
   
@@ -136,39 +137,36 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--card-bg);
-    border: none;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
     color: var(--text-primary);
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    z-index: 2;
-  }
-  
-  .carousel-nav:hover {
-    background: var(--bg-secondary);
-    transform: translateY(-50%) scale(1.1);
   }
   
   .carousel-nav.prev {
-    left: 20px;
+    left: 0;
   }
   
   .carousel-nav.next {
-    right: 20px;
+    right: 0;
+  }
+  
+  .carousel-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
   }
   
   .carousel-dots {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
   
   .dot {
@@ -193,10 +191,12 @@ body {
   }
   
   footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 1rem 0;
     text-align: center;
-    padding: 10px;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--border-color);
+    transition: all 0.3s ease;
   }
   
   /* Contact page styles */
@@ -223,22 +223,30 @@ body {
     text-decoration: none;
     color: var(--text-primary);
     transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
   }
   
   .social-link:hover {
-    background-color: #e9ecef;
     transform: translateX(10px);
+    background-color: var(--bg-primary);
   }
   
   .social-link i {
-    font-size: 24px;
+    font-size: 1.5rem;
     width: 40px;
     text-align: center;
-    color: #333;
   }
   
-  .social-link:hover i {
-    transform: scale(1.1);
+  .social-link.linkedin i {
+    color: #0077b5;
+  }
+  
+  .social-link.github i {
+    color: var(--text-primary);
+  }
+  
+  .social-link.instagram i {
+    color: #e4405f;
   }
   
   .email-section {
@@ -275,7 +283,7 @@ body {
   }
   
   .email-section i {
-    color: #333;
+    color: var(--accent-color);
   }
   
   .email-button i {
@@ -314,6 +322,12 @@ body {
     --intro-bg: #ffffff;
     --intro-text: #333333;
     --description-text: #666666;
+    --footer-bg: #ffffff;
+    --footer-text: #333333;
+    --carousel-border: rgba(0, 0, 0, 0.1);
+    --nav-link: #333333;
+    --nav-link-hover: #007bff;
+    --nav-divider: #666666;
   }
   
   :root[data-theme="midnight"] {
@@ -328,6 +342,12 @@ body {
     --intro-bg: #1a1b1e;
     --intro-text: #e4e5e7;
     --description-text: #a1a1a1;
+    --footer-bg: #1a1b1e;
+    --footer-text: #e4e5e7;
+    --carousel-border: rgba(255, 255, 255, 0.1);
+    --nav-link: #e4e5e7;
+    --nav-link-hover: #4dabf7;
+    --nav-divider: #a1a1a1;
   }
   
   :root[data-theme="amoled"] {
@@ -342,6 +362,12 @@ body {
     --intro-bg: #000000;
     --intro-text: #ffffff;
     --description-text: #cccccc;
+    --footer-bg: #000000;
+    --footer-text: #ffffff;
+    --carousel-border: rgba(255, 255, 255, 0.1);
+    --nav-link: #ffffff;
+    --nav-link-hover: #2196f3;
+    --nav-divider: #cccccc;
   }
   
   /* Apply variables to existing elements */
@@ -374,20 +400,32 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
   
   .theme-switcher label {
     color: var(--text-primary);
+    font-size: 0.9rem;
   }
   
   .theme-switcher select {
-    padding: 0.3rem;
-    border-radius: 4px;
     background-color: var(--bg-secondary);
     color: var(--text-primary);
     border: 1px solid var(--border-color);
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 0.9rem;
+    outline: none;
+  }
+  
+  .theme-switcher select:hover {
+    border-color: var(--accent-color);
+  }
+  
+  .theme-switcher select option {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
   }
   
   /* Update existing styles with variables */
@@ -429,4 +467,51 @@ body {
     max-width: 600px;
     margin: 0 auto;
     transition: color 0.3s ease;
+  }
+  
+  /* Navigation Styles */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .nav-links a {
+    color: var(--nav-link);
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: var(--nav-link-hover);
+  }
+  
+  /* Active page indicator */
+  .nav-links a.active {
+    color: var(--nav-link-hover);
+    font-weight: 500;
+  }
+  
+  /* Theme switcher in navbar */
+  .theme-switcher select {
+    background-color: var(--bg-secondary);
+    color: var(--nav-link);
+    border: 1px solid var(--border-color);
+  }
+  
+  .theme-switcher select:hover {
+    border-color: var(--nav-link-hover);
+  }
+  
+  /* Style for the forward slash divider */
+  .nav-links span {
+    color: var(--nav-divider);
+    opacity: 0.7;
+  }
+  
+  .nav-links strong {
+    color: var(--nav-link);
+    font-weight: 600;
+    padding: 0.5rem;
   }
