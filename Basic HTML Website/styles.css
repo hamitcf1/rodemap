@@ -760,3 +760,16 @@ body {
   .project-btn.disabled:hover {
     transform: none;
   }
+  
+  .footer-ads-container {
+    max-width: 100%;
+    min-height: 90px; /* Standard banner ad height */
+    margin: 1rem auto;
+    text-align: center;
+    overflow: hidden;
+    display: none; /* Hidden by default */
+  }
+  
+  .footer-ads-container.active {
+    display: block;
+  }
